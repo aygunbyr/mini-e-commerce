@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import Product from "../models/Product";
 import { getProducts } from "../api";
 import { useCart } from "../store/useCart";
 
 export default function List() {
-  const { isLoading, isError, data, error } = useQuery({
+  const { isLoading, isError, data, error } = useQuery<Product[]>({
     queryKey: ["products"],
     queryFn: getProducts,
   });
